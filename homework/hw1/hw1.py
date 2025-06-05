@@ -84,19 +84,66 @@
 # print(avr_fun([23,45,6,7,2,89]))
 #
 # 1 Є list:
-#
-#   list = [22, 3,5,2,8,2,-23, 8,23,5]
-#
-#   – знайти  мін. число
-#
-#   – видалити усі дублікати
-#
-#   – замінити кожне 4-те значення на ‘X’
-#
+# – знайти  мін. число
+
+list_my = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
+
+def min_number():
+    print(min(list_my))
+
+# – видалити усі дублікати
+def delete_duplicate():
+    set_list = set(list_my)
+    new_list = list(set_list)
+    print(new_list)
+
+# – замінити кожне 4-те значення на ‘X’
+def copy_list():
+    print(['X' if (key + 1) % 4 == 0 else valume for key, valume in enumerate(list_my)])
+
 # 2) вивести на екран пустий квадрат з “*”, сторона якого вказана як аргумент функції
-#
+
+def square(num):
+    for i in range(num):
+        if i == 0 or i == num - 1:
+            print('*' * num)
+        else:
+            print('*' + ' ' *(num-2) + '*')
+
 # 3) вивести табличку множення за допомогою циклу while
-#
+
+def table():
+    i=1
+    while i < 10:
+        j = 1
+        while j < 10:
+            rez = f'{i}*{j}={i*j}'
+            print(f'{rez:8}', end='')
+            j += 1
+        i += 1
+        print('')
+
 # 4) переробити це завдання під меню
-#
-#
+print('1) Знайти  мін. число.')
+print('2) Видалити усі дублікати.')
+print('3) Замінити кожне 4-те значення на ‘X’.')
+print('4) Вивести на екран пустий квадрат з “*”, сторона якого вказана як аргумент функції.')
+print('5) Вивести табличку множення за допомогою циклу while.')
+print('9) Вихід.')
+print('')
+set = input('Зробіть свій вибір')
+
+if set == '1':
+    min_number()
+elif set == '2':
+    delete_duplicate()
+elif set == '3':
+    copy_list()
+elif set == '4':
+    square(10)
+elif set == '5':
+    table()
+elif set == '9':
+    break
+
+
